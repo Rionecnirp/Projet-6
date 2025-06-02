@@ -61,6 +61,16 @@ function nextSlide() {
 	console.log('--> Nouvelle Slide !')
 }
 
+/**
+ * Création de la fonction pour passer à la slide précédente :
+ * Fonctionnellement la même chose que la fonction précédente, avec quelques changements.
+ * On réduit index de 1.
+ * Si index est en dessous de 0, alors
+ * On le place à nb_slides - 1.
+ * 
+ * Même chose que la fonction précédente.
+ */
+
 function backSlide() {
 	allDots[index].classList.remove('dot_selected');
 	index--;
@@ -73,5 +83,10 @@ function backSlide() {
 	console.log('--> Retour arrière !')
 }
 
+// Quand on clique sur la flèche de gauche, on active la fonction "backSlide" et on active la fonction "nextSlide" en cliquant sur la flèche de droite.
 next.addEventListener('click', nextSlide)
 back.addEventListener('click', backSlide)
+
+// QoL. Transforme le curseur pour montrer qu'on peut cliquer sur les flèches.
+back.style.cursor = 'pointer' 
+next.style.cursor = 'pointer'
