@@ -61,4 +61,17 @@ function nextSlide() {
 	console.log('--> Nouvelle Slide !')
 }
 
+function backSlide() {
+	allDots[index].classList.remove('dot_selected');
+	index--;
+	if(index < 0){
+		index = nb_slides - 1;
+	}
+	img.src = `./assets/images/slideshow/${slides[index].image}`;
+	txt.innerHTML = slides[index].tagLine;
+	allDots[index].classList.add('dot_selected');
+	console.log('--> Retour arrière !')
+}
+
 next.addEventListener('click', nextSlide)
+back.addEventListener('click', backSlide)
