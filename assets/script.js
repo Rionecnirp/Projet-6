@@ -37,3 +37,26 @@ let dotsContainer = document.querySelector('.dots')
 dotsContainer.innerHTML=`${dot.repeat(slides.length)}`
 dotsContainer.firstChild.classList.add('dot_selected')
 const allDots = document.querySelectorAll('.dot')
+
+/** Création de la fonction pour passer à la slide suivant :
+ * On retire la classe "dot_selected" du dot actuel (représenté par index).
+ * On augmente index de 1, dans l'idée on passe à la case suivante.
+ * Si index dépasse nb_slides-1 (ici 3, la première case est toujours 0), alors
+ * On retourne à 0, donc à la première slide.
+ * 
+ * On modifie ensuite le chemin de l'image. Spécifiquement slides.images
+ * Pareil avec le texte.
+ * On place "dot_selected sur le nouveau dot actuel"
+ */
+
+function nextSlide() {
+	allDots[index].classList.remove('dot_selected');
+	index++;
+	if(index > nb_slides - 1){
+		index = 0;
+	}
+	img.src = `./assets/images/slideshow/${slides[index].image}`;
+	txt.innerHTML = slides[index].tagLine;
+	allDots[index].classList.add('dots_selected');
+	console.log('--> Nouvelle Slide !')
+}
