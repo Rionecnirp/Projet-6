@@ -57,6 +57,8 @@ function nextSlide() {
 	}
 	img.src = `./assets/images/slideshow/${slides[index].image}`;
 	txt.innerHTML = slides[index].tagLine;
-	allDots[index].classList.add('dots_selected');
+	allDots[index].classList.add('dot_selected');
 	console.log('--> Nouvelle Slide !')
 }
+
+next.addEventListener('click', nextSlide)
